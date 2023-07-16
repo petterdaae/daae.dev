@@ -16,3 +16,4 @@ export function getClient(): SanityClient {
 }
 
 export const experiencesQuery = '*[_type == "experience"]';
+export const aboutQuery = '*[_type == "about"]';

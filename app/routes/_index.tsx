@@ -1,17 +1,18 @@
 import { useLoaderData } from "@remix-run/react";
 import SplitHeader from "~/components/SplitHeader";
-import { experiencesQuery, getClient } from "~/lib/sanity";
+import { aboutQuery, getClient } from "~/lib/sanity";
 
 export const loader = async () => {
-  const experiences = await getClient().fetch(experiencesQuery);
-  return { experiences };
+  const abouts = await getClient().fetch(aboutQuery);
+  return { about: abouts[0] };
 };
 
 export default function Index() {
-  const { experiences } = useLoaderData();
+  const { about } = useLoaderData();
   return (
-    <div className="flex justify-center pt-32">
+    <div className="p-8 md:p-32">
       <SplitHeader left="daae" right=".dev" />
+      <p className="pt-8">{about.bio}</p>
     </div>
   );
 }
