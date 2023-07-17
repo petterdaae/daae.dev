@@ -15,5 +15,13 @@ export function getClient(): SanityClient {
   });
 }
 
-export const experiencesQuery = '*[_type == "experience"]';
 export const aboutQuery = '*[_type == "about"]';
+export const experiencesQuery = `
+  *[_type == "experience"]{
+    company,
+    "imageUrl": image.asset->url,
+    duration,
+    keywords,
+    description
+  }
+`;
