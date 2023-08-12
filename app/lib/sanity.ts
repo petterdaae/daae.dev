@@ -28,3 +28,4 @@ export const experiencesQuery = `
   |
   order(ordering asc)
 `;
+export const togglesQuery = '*[_type == "toggles"]';
