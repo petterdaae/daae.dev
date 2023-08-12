@@ -11,7 +11,7 @@ type Props = {
 export default function Experience({ experiences }: Props) {
   return (
     <div>
-      <h3 className="text-2xl">Arbeiderfaring</h3>
+      <h3 className="text-2xl">Arbeidserfaring</h3>
       {experiences.map((experience) => (
         <div key={experience.company} className="flex flex-col mt-6">
           <div className="flex">
