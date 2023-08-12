@@ -35,5 +35,10 @@ export default {
       type: 'string',
       title: 'description',
     },
+    {
+      name: 'ordering',
+      type: 'number',
+      title: 'ordering',
+    },
   ],
 }
