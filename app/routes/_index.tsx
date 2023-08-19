@@ -2,17 +2,17 @@ import { useLoaderData } from "@remix-run/react";
 import Experience from "~/components/Experience";
 import SplitHeader from "~/components/SplitHeader";
 import {
-  aboutQuery,
+  siteQuery,
   experiencesQuery,
   getClient,
   togglesQuery,
 } from "~/lib/sanity";
 
 export const loader = async () => {
-  const abouts = await getClient().fetch(aboutQuery);
+  const sites = await getClient().fetch(siteQuery);
   const experiences = await getClient().fetch(experiencesQuery);
   const toggles = await getClient().fetch(togglesQuery);
-  return { about: abouts[0], experiences, toggle: toggles[0] };
+  return { about: sites[0], experiences, toggle: toggles[0] };
 };
 
 export default function Index() {
