@@ -33,13 +33,13 @@ export default function Experience({ experiences }: Props) {
                 {experience.keywords?.map((keyword) => (
                   <span
                     key={keyword}
-                    className="p-1 pl-2 pr-2 text-xs rounded-full border border-black ml-1"
+                    className="p-1 pl-2 pr-2 text-xs rounded-full border border-black ml-1 hidden md:inline"
                   >
                     {keyword}
                   </span>
                 ))}
               </div>
-              <p className="w-1/2 pt-1">{experience.description}</p>
+              <p className="pt-1 md:w-1/2">{experience.description}</p>
             </div>
           </div>
         </div>
