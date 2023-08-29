@@ -16,6 +16,8 @@ export function getClient(): SanityClient {
 }
 
 export const siteQuery = '*[_type == "site" && name == "daae.dev"]';
+export const pentestChecklistQuery =
+  '*[_type == "site" && name == "daae.dev/pentest-checklist"]';
 export const experiencesQuery = `
   *[_type == "experience"]{
     company,
