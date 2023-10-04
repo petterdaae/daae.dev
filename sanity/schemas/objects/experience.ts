@@ -1,7 +1,7 @@
 export default {
   name: 'experience',
-  type: 'document',
-  title: 'Arbeidserfaring',
+  type: 'object',
+  title: 'Erfaring',
   fields: [
     {
       name: 'company',
@@ -34,11 +34,6 @@ export default {
       name: 'description',
       type: 'text',
       title: 'description',
-    },
-    {
-      name: 'ordering',
-      type: 'number',
-      title: 'ordering',
     },
   ],
 }

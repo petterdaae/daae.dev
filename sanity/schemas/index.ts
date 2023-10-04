@@ -1,8 +1,7 @@
-import site from './site'
-import experience from './experience'
-import toggles from './toggles'
-import plainText from './plainText'
-import header from './header'
-import checkbox from './checkbox'
+import site from './documents/site'
+import experience from './objects/experience'
+import header from './objects/header'
+import splitHeader from './objects/splitHeader'
+import plainText from './objects/plainText'
 
-export const schemaTypes = [site, experience, toggles, plainText, header, checkbox]
+export const schemaTypes = [site, experience, header, splitHeader, plainText]
