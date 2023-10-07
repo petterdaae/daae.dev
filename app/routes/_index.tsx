@@ -10,7 +10,7 @@ export const loader = async () => {
 export default function Index() {
   const page = useLoaderData();
   return (
-    <div className="p-8 md:p-32">
+    <div className="p-8 md:p-32 xl:p-64 xl:pt-32 xl:pb-32">
       {page.blocks.map((block: any) => (
         <div key={block._key}>
           {block._type == "splitHeader" && (
