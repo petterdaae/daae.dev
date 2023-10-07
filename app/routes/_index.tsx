@@ -16,11 +16,9 @@ export default function Index() {
           {block._type == "splitHeader" && (
             <SplitHeader left={block.left} right={block.right} />
           )}
-          {block._type == "plainText" && (
-            <p className="pt-8 pb-8">{block.value}</p>
-          )}
+          {block._type == "plainText" && <p className="pt-8">{block.value}</p>}
           {block._type == "header" && (
-            <h3 className="text-2xl">{block.value}</h3>
+            <h3 className="text-2xl pt-8">{block.value}</h3>
           )}
           {block._type == "experience" && <Experience experience={block} />}
         </div>
