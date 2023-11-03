@@ -15,5 +15,5 @@
 
 ## Deployment
 
-- The remix app is automatically deployed from the main branch to [daae.dev](daae.dev) with Vercel.
-- Sanity Studio is automatically deployed to [daae.sanity.studio](daae.sanity.studio) from the main branch with GitHub Actions.
+- The remix app is automatically deployed from the main branch to [daae.dev](https://daae.dev) with Vercel.
+- Sanity Studio is automatically deployed to [daae.sanity.studio](https://daae.sanity.studio) from the main branch with GitHub Actions.
