@@ -7,5 +7,5 @@
 
 ## Deployment
 
-- Remix is automatically deployed from the main branch to daae.dev with vercel.
-- Deploy sanity stuio to daae.sanity.studio with `npx sanity deploy`
+- The remix app is automatically deployed from the main branch to daae.dev with Vercel.
+- Sanity Studio is automatically deployed to daae.sanity.studio from the main branch with GitHub Actions.
