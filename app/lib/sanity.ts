@@ -1,6 +1,7 @@
 import { createClient } from "@sanity/client";
 import type { SanityClient } from "@sanity/client";
 import imageUrlBuilder from "@sanity/image-url";
+import type { SanityImageSource } from "@sanity/image-url/lib/types/types";
 
 export const projectId = "9ijxh2qg";
 export const dataset = "production";
@@ -17,18 +18,26 @@ export function getClient(): SanityClient {
   });
 }
 
-export const siteQuery = '*[_type == "page" && path == "/"]';
+export const siteQuery = `
+  *[_type == "page" && path == "/"]`;
 
 export async function getPage() {
   const client = getClient();
   const page = (await client.fetch(siteQuery))[0];
-  const builder = imageUrlBuilder(client);
   const pageWithImageUrls = {
     ...page,
-    blocks: page.blocks.map((block: any) => ({
-      ...block,
-      imageUrl: block.image ? builder.image(block.image).url() : null,
-    })),
+    content: page.content.map((element) => {
+      if (element._type === "experience") {
+        return { ...element, imageUrl: imageUrl(element.image) };
+      }
+      return element;
+    }),
   };
   return pageWithImageUrls;
+}
+
+export function imageUrl(image: SanityImageSource): string {
+  const client = getClient();
+  const builder = imageUrlBuilder(client);
+  return builder.image(image).url();
 }
