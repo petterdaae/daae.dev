@@ -1,7 +1,7 @@
 name: Deploy Sanity Studio
 on:
   push:
-    branches: [ main ]
+    branches: [main]
 jobs:
   sanity-deploy:
     runs-on: ubuntu-latest
@@ -13,4 +13,4 @@ jobs:
           node-version: 12.x
       - name: sanity deploy
         working-directory: sanity
-        run: npm install && SANITY_AUTH_TOKEN="${{ secrets.SANITY_STUDIO_DEPLOY }}" npx sanity deploy
+        run: npm install && SANITY_AUTH_TOKEN="${{ secrets.SANITY_AUTH_TOKEN }}" npx sanity deploy
