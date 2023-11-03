@@ -8,12 +8,14 @@ import {
   ScrollRestoration,
 } from "@remix-run/react";
 import stylesheet from "~/tailwind.css";
+import { useNonce } from "./lib/nonce";
 
 export const links: LinksFunction = () => [
   { rel: "stylesheet", href: stylesheet },
 ];
 
 export default function App() {
+  const nonce = useNonce();
   return (
     <html lang="en">
       <head>
@@ -24,9 +26,9 @@ export default function App() {
       </head>
       <body>
         <Outlet />
-        <ScrollRestoration />
-        <Scripts />
-        <LiveReload />
+        <ScrollRestoration nonce={nonce} />
+        <Scripts nonce={nonce} />
+        <LiveReload nonce={nonce} />
       </body>
     </html>
   );
