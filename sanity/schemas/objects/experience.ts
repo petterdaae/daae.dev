@@ -11,7 +11,7 @@ export default {
     {
       name: 'image',
       type: 'image',
-      title: 'image',
+      title: 'Image',
     },
     {
       name: 'duration',

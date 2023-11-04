@@ -12,7 +12,7 @@ export default {
       title: 'Content',
       name: 'content',
       type: 'array',
-      of: [{type: 'block'}, {type: 'splitHeader'}, {type: 'experience'}],
+      of: [{type: 'block'}, {type: 'splitHeader'}, {type: 'experience'}, {type: 'altImage'}],
     },
   ],
   preview: {
