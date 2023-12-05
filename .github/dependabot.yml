@@ -9,24 +9,7 @@ updates:
     directory: "/"
     schedule:
       interval: "weekly"
-    groups:
-      remix-dependencies:
-        patterns:
-          - "@remix-run/*"
-      production-dependencies:
-        dependency-type: production
-        exclude-patterns:
-          - "@remix-run/*"
-      development-dependencies:
-        dependency-type: development
-        exclude-patterns:
-          - "@remix-run/*"
   - package-ecosystem: "npm"
     directory: "/sanity"
     schedule:
       interval: "weekly"
-    groups:
-      production-dependencies:
-        dependency-type: production
-      development-dependencies:
-        dependency-type: development
