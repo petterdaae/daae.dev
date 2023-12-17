@@ -3,5 +3,6 @@ import experience from './objects/experience'
 import splitHeader from './objects/splitHeader'
 import altImage from './objects/altImage'
 import codeBlock from './objects/codeBlock'
+import selectAnswer from './objects/selectAnswer'
 
-export const schemaTypes = [page, experience, splitHeader, altImage, codeBlock]
+export const schemaTypes = [page, experience, splitHeader, altImage, codeBlock, selectAnswer]

@@ -18,6 +18,7 @@ export default {
         {type: 'experience'},
         {type: 'altImage'},
         {type: 'codeBlock'},
+        {type: 'selectAnswer'},
       ],
     },
   ],

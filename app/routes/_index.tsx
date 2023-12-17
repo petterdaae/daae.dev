@@ -7,6 +7,7 @@ import SplitHeader from "~/components/SplitHeader";
 import { getPage } from "~/lib/sanity";
 import AltImage from "~/components/AltImage";
 import CodeBlock from "~/components/CodeBlock";
+import SelectAnswer from "~/components/quiz/SelectAnswer";
 
 export async function loader({ request }: LoaderFunctionArgs) {
   const url = new URL(request.url);
@@ -41,6 +42,7 @@ export default function Index() {
           experience: Experience,
           altImage: AltImage,
           codeBlock: CodeBlock,
+          selectAnswer: SelectAnswer,
         }}
       />
     </div>
