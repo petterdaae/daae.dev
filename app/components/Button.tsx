@@ -2,7 +2,7 @@ export default function Button(props: any) {
   return (
     <button
       type="button"
-      className="text-white bg-gradient-to-br from-pink-500 to-orange-400 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-pink-200 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2"
+      className="bg-rose-300 focus:ring-2 focus:outline-none focus:ring-rose-400 rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2"
       {...props}
     />
   );
