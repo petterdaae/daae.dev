@@ -9,7 +9,15 @@ updates:
     directory: "/"
     schedule:
       interval: "weekly"
+    groups:
+      app-dependencies:
+        patterns:
+          - "*"
   - package-ecosystem: "npm"
     directory: "/sanity"
     schedule:
       interval: "weekly"
+    groups:
+      sanity-dependencies:
+        patterns:
+          - "*"
