@@ -10,7 +10,7 @@ Personal website.
 ## Deployment
 
 - The remix app is automatically deployed from the main branch to [daae.dev](https://daae.dev) with [Vercel](https://vercel.com/petterdaae/daae-dev/deployments).
-- Sanity Studio is deployed manually to [daae.sanity.studio](https://daae.sanity.studio) with `npx sanity deploy` from the `/sanity` folder.
+- Sanity Studio is automatically deployed from the main branch to [daae.sanity.studio](https://daae.sanity.studio) with GitHub Actions.
 
 ## Monitoring
 
