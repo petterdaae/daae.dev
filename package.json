@@ -8,11 +8,11 @@
     "typecheck": "tsc"
   },
   "dependencies": {
-    "@remix-run/css-bundle": "2.9.1",
-    "@remix-run/node": "2.9.1",
-    "@remix-run/react": "2.9.1",
-    "@remix-run/serve": "2.9.1",
-    "@sanity/client": "6.15.20",
+    "@remix-run/css-bundle": "2.9.2",
+    "@remix-run/node": "2.9.2",
+    "@remix-run/react": "2.9.2",
+    "@remix-run/serve": "2.9.2",
+    "@sanity/client": "6.18.2",
     "@sanity/image-url": "1.0.2",
     "isbot": "5.1.6",
     "jspdf": "2.5.1",
@@ -22,11 +22,10 @@
     "remix-utils": "7.6.0"
   },
   "devDependencies": {
-    "@remix-run/dev": "2.9.1",
-    "@remix-run/eslint-config": "2.9.1",
-    "@types/react": "18.3.1",
+    "@remix-run/dev": "2.9.2",
+    "@remix-run/eslint-config": "2.9.2",
+    "@types/react": "18.3.2",
     "@types/react-dom": "18.3.0",
-    "eslint": "8.57.0",
     "tailwindcss": "3.4.3",
     "typescript": "5.4.5"
   },
