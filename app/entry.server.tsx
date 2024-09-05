@@ -7,11 +7,10 @@
 import { PassThrough } from "node:stream";
 
 import type { AppLoadContext, EntryContext } from "@remix-run/node";
+import { createReadableStreamFromReadable } from "@remix-run/node";
 import { RemixServer } from "@remix-run/react";
 import { isbot } from "isbot";
 import { renderToPipeableStream } from "react-dom/server";
-import { NonceProvider } from "./lib/nonce";
-import crypto from "crypto";
 
 const ABORT_DELAY = 5_000;
 
@@ -20,89 +19,50 @@ export default function handleRequest(
   responseStatusCode: number,
   responseHeaders: Headers,
   remixContext: EntryContext,
+  // This is ignored so we can keep it in the template for visibility.  Feel
+  // free to delete this parameter in your app if you're not using it!
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   loadContext: AppLoadContext
 ) {
-  // Deprecation, intervention and crash reports
-  // https://docs.report-uri.com/setup/reporting-api
-  responseHeaders.set(
-    "Report-To",
-    JSON.stringify({
-      group: "default",
-      max_age: 31536000,
-      endpoints: [
-        {
-          url: "https://daae.report-uri.com/a/d/g",
-        },
-      ],
-      include_subdomains: true,
-    })
-  );
-
-  // Content Security Policy
-  // https://csp-evaluator.withgoogle.com
-  const nonce = crypto.randomBytes(16).toString("base64");
-  responseHeaders.set(
-    "Content-Security-Policy",
-    "".concat(
-      `default-src 'none'; `,
-      `script-src 'strict-dynamic' 'nonce-${nonce}' 'unsafe-inline' http: https:; `,
-      `img-src cdn.sanity.io;`,
-      `style-src 'self';`,
-      `require-trusted-types-for 'script'; `,
-      `report-uri https://daae.report-uri.com/r/d/csp/enforce; `,
-      process.env.NODE_ENV === "development"
-        ? "connect-src ws://localhost:3001;"
-        : ""
-    )
-  );
-
-  responseHeaders.set("X-Frame-Options", "DENY");
-  responseHeaders.set("X-Content-Type-Options", "nosniff");
-  responseHeaders.set("Referrer-Policy", "no-referrer");
-
-  return isbot(request.headers.get("user-agent"))
+  return isbot(request.headers.get("user-agent") || "")
     ? handleBotRequest(
-        request,
-        responseStatusCode,
-        responseHeaders,
-        remixContext,
-        nonce
-      )
+      request,
+      responseStatusCode,
+      responseHeaders,
+      remixContext
+    )
     : handleBrowserRequest(
-        request,
-        responseStatusCode,
-        responseHeaders,
-        remixContext,
-        nonce
-      );
+      request,
+      responseStatusCode,
+      responseHeaders,
+      remixContext
+    );
 }
 
 function handleBotRequest(
   request: Request,
   responseStatusCode: number,
   responseHeaders: Headers,
-  remixContext: EntryContext,
-  nonce: string
+  remixContext: EntryContext
 ) {
   return new Promise((resolve, reject) => {
     let shellRendered = false;
     const { pipe, abort } = renderToPipeableStream(
-      <NonceProvider value={nonce}>
-        <RemixServer
-          context={remixContext}
-          url={request.url}
-          abortDelay={ABORT_DELAY}
-        />
-      </NonceProvider>,
+      <RemixServer
+        context={remixContext}
+        url={request.url}
+        abortDelay={ABORT_DELAY}
+      />,
       {
         onAllReady() {
           shellRendered = true;
           const body = new PassThrough();
+          const stream = createReadableStreamFromReadable(body);
 
           responseHeaders.set("Content-Type", "text/html");
 
           resolve(
-            new Response(body, {
+            new Response(stream, {
               headers: responseHeaders,
               status: responseStatusCode,
             })
@@ -133,28 +93,26 @@ function handleBrowserRequest(
   request: Request,
   responseStatusCode: number,
   responseHeaders: Headers,
-  remixContext: EntryContext,
-  nonce: string
+  remixContext: EntryContext
 ) {
   return new Promise((resolve, reject) => {
     let shellRendered = false;
     const { pipe, abort } = renderToPipeableStream(
-      <NonceProvider value={nonce}>
-        <RemixServer
-          context={remixContext}
-          url={request.url}
-          abortDelay={ABORT_DELAY}
-        />
-      </NonceProvider>,
+      <RemixServer
+        context={remixContext}
+        url={request.url}
+        abortDelay={ABORT_DELAY}
+      />,
       {
         onShellReady() {
           shellRendered = true;
           const body = new PassThrough();
+          const stream = createReadableStreamFromReadable(body);
 
           responseHeaders.set("Content-Type", "text/html");
 
           resolve(
-            new Response(body, {
+            new Response(stream, {
               headers: responseHeaders,
               status: responseStatusCode,
             })
