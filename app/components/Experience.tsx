@@ -1,9 +1,11 @@
 type Props = {
-  company: string;
-  imageUrl: string;
-  duration: string;
-  keywords: string[];
-  description: string;
+  value: {
+    company: string;
+    imageUrl: string;
+    duration: string;
+    keywords: string[];
+    description: string;
+  }
 };
 
 function DescriptionOnMobile(props: { description: string }) {
@@ -48,29 +50,23 @@ function Company(props: { company: string }) {
   return <h3 className="text-xl">{props.company}</h3>;
 }
 
-export default function Experience({
-  company,
-  duration,
-  keywords,
-  description,
-  imageUrl,
-}: Props) {
+export default function Experience({ value }: Props) {
   return (
     <div className="flex flex-col mt-6">
       <div className="flex">
-        <Logo company={company} imageUrl={imageUrl} />
+        <Logo company={value.company} imageUrl={value.imageUrl} />
         <div className="flex flex-col pl-4">
-          <Company company={company} />
+          <Company company={value.company} />
           <div className="pt-1">
-            <Duration duration={duration} />
-            {keywords?.map((keyword) => (
+            <Duration duration={value.duration} />
+            {value.keywords?.map((keyword) => (
               <Keyword key={keyword} keyword={keyword} />
             ))}
           </div>
-          <DescriptionOnDesktop description={description} />
+          <DescriptionOnDesktop description={value.description} />
         </div>
       </div>
-      <DescriptionOnMobile description={description} />
+      <DescriptionOnMobile description={value.description} />
     </div>
   );
 }
