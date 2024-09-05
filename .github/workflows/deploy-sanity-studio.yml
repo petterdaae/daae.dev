@@ -17,6 +17,6 @@ jobs:
           node-version: 20.11.0
       - name: Install dependencies and deploy
         run: |
-          cd sanity
+          cd sanity/daae.dev
           npm install
           SANITY_AUTH_TOKEN="${{ secrets.SANITY_AUTH_TOKEN }}" npm run deploy
