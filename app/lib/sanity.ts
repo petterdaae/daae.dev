@@ -1,11 +1,11 @@
 import { createClient } from "@sanity/client";
 import type { SanityClient, SanityDocument } from "@sanity/client";
 
-export const projectId = "9ijxh2qg";
 export const dataset = "production";
 export const apiVersion = "2023-07-01";
 
 export function getClient(): SanityClient {
+  const projectId = process.env.SANITY_PROJECT_ID;
   return createClient({
     projectId,
     dataset,
