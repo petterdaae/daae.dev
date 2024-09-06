@@ -15,6 +15,7 @@ export default {
       of: [
         { type: 'block' },
         { type: 'altImage' },
+        { type: 'event' },
       ],
     },
   ],
