@@ -17,6 +17,7 @@ export default {
         { type: 'altImage' },
         { type: 'event' },
         { type: 'textWithImage' },
+        { type: 'callout' },
       ],
     },
   ],

@@ -17,7 +17,7 @@ type TextProps = {
 function Text({ title, text, className }: TextProps) {
     return (
         <div className={`basis-3/4 ${className}`}>
-            <h3 className="text-3xl mb-4">{title}</h3>
+            <h2 className="text-3xl mb-4">{title}</h2>
             <p>{text}</p>
         </div>
     )
@@ -25,8 +25,8 @@ function Text({ title, text, className }: TextProps) {
 
 function TextWithImageMobile({ value }: Props) {
     return (
-        <div className="sm:hidden mt-4">
-            <h3 className="text-3xl mb-4">{value.title}</h3>
+        <div className="sm:hidden mt-10">
+            <h2 className="text-3xl mb-2">{value.title}</h2>
             <div className="flex">
                 {value.rightAlign && <p className="basis-2/3 mr-2">{value.text}</p>}
                 <div className="basis-1/3">
@@ -40,7 +40,7 @@ function TextWithImageMobile({ value }: Props) {
 
 function TextWithImageDesktop({ value }: Props) {
     return (
-        <div className="hidden sm:flex mt-8">
+        <div className="hidden sm:flex mt-10">
             {value.rightAlign && <Text title={value.title} text={value.text} className="mr-8" />}
             <div className="basis-1/4">
                 <img className="rounded-lg" src={value.imageUrl} alt={value.imageAlt} />

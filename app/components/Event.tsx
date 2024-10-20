@@ -12,7 +12,7 @@ export default function Event({ value }: Props) {
     return (
         <div className="mt-10 p-4 bg-blue rounded-lg flex">
             <div>
-                <h3 className="text-3xl">{value.title}</h3>
+                <h2 className="text-3xl">{value.title}</h2>
                 <p className="mt-2 inline-block rounded-full border border-darkBlue pr-2 pl-2 mr-2">{value.date}</p>
                 <p className="mt-2 inline-block rounded-full border border-darkBlue  pr-2 pl-2 mr-2">{value.time}</p>
                 <p className="mt-2 inline-block rounded-full border border-darkBlue pr-2 pl-2 mr-2">{value.location}</p>

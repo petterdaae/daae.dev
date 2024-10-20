@@ -8,6 +8,8 @@ import { getPage } from "~/lib/sanity.server";
 import AltImage from "~/components/AltImage";
 import Event from "~/components/Event";
 import TextWithImage from "~/components/TextWithImage";
+import callout from "sanity/duolignum.no/schemas/objects/callout";
+import Callout from "~/components/Callout";
 
 export async function loader({ request }: LoaderFunctionArgs) {
   const url = new URL(request.url);
@@ -30,7 +32,8 @@ export default function Index() {
             experience: Experience,
             altImage: AltImage,
             event: Event,
-            textWithImage: TextWithImage
+            textWithImage: TextWithImage,
+            callout: Callout
           },
           block: {
             h2: ({ children }) => <h2 className="text-2xl font-bold pt-4 pb-4">{children}</h2>,
