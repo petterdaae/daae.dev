@@ -1,8 +1,10 @@
 type Props = {
-  imageUrl: string;
-  alt: string;
+  value: {
+    imageUrl: string;
+    alt: string;
+  }
 };
 
-export default function AltImage({ imageUrl, alt }: Props) {
-  return <img className="mt-8" src={imageUrl} alt={alt} />;
+export default function AltImage({ value }: Props) {
+  return <img className="mt-8" src={value.imageUrl} alt={value.alt} />;
 }
