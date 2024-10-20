@@ -20,6 +20,20 @@ export default function handleRequest(
   remixContext: EntryContext,
   loadContext: AppLoadContext
 ) {
+
+  // Deprecation, intervention and crash reports
+  // https://docs.report-uri.com/setup/reporting-api
+  responseHeaders.set("Report-To", JSON.stringify({
+    group: "default",
+    max_age: 31536000,
+    endpoints: [
+      {
+        url: "https://daae.report-uri.com/a/d/g"
+      }
+    ],
+    include_subdomains: true
+  }));
+
   return isbot(request.headers.get("user-agent"))
     ? handleBotRequest(
       request,
