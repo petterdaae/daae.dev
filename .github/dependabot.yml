@@ -21,3 +21,12 @@ updates:
         dependency-type: development
         exclude-patterns:
           - "@remix-run/*"
+  - package-ecosystem: "npm"
+    directory: "/sanity"
+    schedule:
+      interval: "weekly"
+    groups:
+      production-dependencies:
+        dependency-type: production
+      development-dependencies:
+        dependency-type: development
