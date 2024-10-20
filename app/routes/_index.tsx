@@ -20,7 +20,7 @@ export async function loader({ request }: LoaderFunctionArgs) {
 export default function Index() {
   const page = useLoaderData<typeof loader>();
   return (
-    <div className="m-auto w-11/12 lg:w-10/12 xl:w-8/12 2xl:w-6/12">
+    <div className="m-auto w-11/12 lg:w-10/12 xl:w-8/12 2xl:w-6/12 mb-8">
       <PortableText
         value={page.content}
         components={{
