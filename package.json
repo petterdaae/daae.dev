@@ -8,11 +8,11 @@
     "typecheck": "tsc"
   },
   "dependencies": {
-    "@react-pdf/renderer": "3.1.17",
-    "@remix-run/css-bundle": "2.5.0",
-    "@remix-run/node": "2.5.0",
-    "@remix-run/react": "2.5.0",
-    "@remix-run/serve": "2.5.0",
+    "@react-pdf/renderer": "3.3.2",
+    "@remix-run/css-bundle": "2.5.1",
+    "@remix-run/node": "2.5.1",
+    "@remix-run/react": "2.5.1",
+    "@remix-run/serve": "2.5.1",
     "@sanity/client": "6.11.1",
     "@sanity/image-url": "1.0.2",
     "isbot": "4.4.0",
@@ -23,8 +23,8 @@
     "remix-utils": "7.5.0"
   },
   "devDependencies": {
-    "@remix-run/dev": "2.5.0",
-    "@remix-run/eslint-config": "2.5.0",
+    "@remix-run/dev": "2.5.1",
+    "@remix-run/eslint-config": "2.5.1",
     "@types/react": "18.2.48",
     "@types/react-dom": "18.2.18",
     "eslint": "8.56.0",
