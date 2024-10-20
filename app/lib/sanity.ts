@@ -12,7 +12,8 @@ export function getClient(): SanityClient {
     dataset,
     apiVersion,
     useCdn: process.env.NODE_ENV !== "development",
-    perspective: "published",
+    perspective:
+      process.env.NODE_ENV == "development" ? "previewDrafts" : "published",
   });
 }
 
