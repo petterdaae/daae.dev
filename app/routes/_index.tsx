@@ -6,7 +6,6 @@ import Experience from "~/components/Experience";
 import SplitHeader from "~/components/SplitHeader";
 import { getPage } from "~/lib/sanity.server";
 import AltImage from "~/components/AltImage";
-import CodeBlock from "~/components/CodeBlock";
 
 export async function loader({ request }: LoaderFunctionArgs) {
   const url = new URL(request.url);
