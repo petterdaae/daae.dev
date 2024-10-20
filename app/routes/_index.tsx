@@ -1,40 +1,21 @@
-import type { V2_MetaFunction } from "@remix-run/node";
+import { useLoaderData } from "@remix-run/react";
+import { experiencesQuery, getClient } from "~/lib/sanity";
 
-export const meta: V2_MetaFunction = () => {
-  return [
-    { title: "New Remix App" },
-    { name: "description", content: "Welcome to Remix!" },
-  ];
+export const loader = async () => {
+  const experiences = await getClient().fetch(experiencesQuery);
+  return { experiences };
 };
 
 export default function Index() {
+  const { experiences } = useLoaderData();
   return (
-    <div style={{ fontFamily: "system-ui, sans-serif", lineHeight: "1.8" }}>
-      <h1>Welcome to Remix</h1>
+    <div>
+      <h1>Welcome to daae.dev!</h1>
+      <h2>Experience</h2>
       <ul>
-        <li>
-          <a
-            target="_blank"
-            href="https://remix.run/tutorials/blog"
-            rel="noreferrer"
-          >
-            15m Quickstart Blog Tutorial
-          </a>
-        </li>
-        <li>
-          <a
-            target="_blank"
-            href="https://remix.run/tutorials/jokes"
-            rel="noreferrer"
-          >
-            Deep Dive Jokes App Tutorial
-          </a>
-        </li>
-        <li>
-          <a target="_blank" href="https://remix.run/docs" rel="noreferrer">
-            Remix Docs
-          </a>
-        </li>
+        {experiences.map((experience: any) => (
+          <li key={experience._id}>{experience.company}</li>
+        ))}
       </ul>
     </div>
   );
