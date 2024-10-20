@@ -18,12 +18,11 @@ export function getClient(): SanityClient {
   });
 }
 
-export const siteQuery = `
-  *[_type == "page" && path == "/"]`;
-
-export async function getPage() {
+export async function getPage(path: string) {
   const client = getClient();
-  const page = (await client.fetch(siteQuery))[0];
+  const page = await client.fetch(`*[_type == "page" && path == $param][0]`, {
+    param: path,
+  });
   const pageWithImageUrls = {
     ...page,
     content: page.content.map((element) => {
