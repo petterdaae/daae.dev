@@ -10,7 +10,7 @@ export default function Index() {
   const { experiences } = useLoaderData();
   return (
     <div>
-      <h1>Welcome to daae.dev!</h1>
+      <h1 className="text-3xl font-bold underline">Welcome to daae.dev!</h1>
       <h2>Experience</h2>
       <ul>
         {experiences.map((experience: any) => (
