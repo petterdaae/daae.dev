@@ -6,10 +6,12 @@ jobs:
   sanity-deploy:
     runs-on: ubuntu-latest
     name: sanity deploy
+    defaults:
+      run:
+        working-directory: sanity
     steps:
       - uses: actions/checkout@v2
       - uses: sanity-io/github-action-sanity@v0.7-alpha
-        working-directory: sanity
         env:
           SANITY_AUTH_TOKEN: ${{ secrets.SANITY_AUTH_TOKEN }}
         with:
