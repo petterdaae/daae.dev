@@ -1,5 +1,5 @@
 import { createClient } from "@sanity/client";
-import type { SanityClient } from "@sanity/client";
+import type { SanityClient, SanityDocument } from "@sanity/client";
 import imageUrlBuilder from "@sanity/image-url";
 import type { SanityImageSource } from "@sanity/image-url/lib/types/types";
 
@@ -18,25 +18,26 @@ export function getClient(): SanityClient {
   });
 }
 
-export async function getPage(path: string) {
+export async function getPage(path: string): Promise<SanityDocument> {
   const client = getClient();
-  const page = await client.fetch(`*[_type == "page" && path == $param][0]`, {
-    param: path,
-  });
-  const pageWithImageUrls = {
-    ...page,
-    content: page.content.map((element) => {
-      if (element._type === "experience") {
-        return { ...element, imageUrl: imageUrl(element.image) };
-      }
-      return element;
-    }),
-  };
-  return pageWithImageUrls;
-}
-
-export function imageUrl(image: SanityImageSource): string {
-  const client = getClient();
-  const builder = imageUrlBuilder(client);
-  return builder.image(image).url();
+  return await client.fetch(
+    `
+      *[_type == "page" && path == $param]{
+        content[]{
+          ...,
+          _type == "experience" => {
+            ...,
+            "imageUrl": image.asset->url
+          },
+          _type == "altImage" => {
+            ...,
+            "imageUrl": image.asset->url
+          }
+        }
+      }[0]
+    `,
+    {
+      param: path,
+    }
+  );
 }
