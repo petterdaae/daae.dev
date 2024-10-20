@@ -22,6 +22,9 @@ export const experiencesQuery = `
     "imageUrl": image.asset->url,
     duration,
     keywords,
-    description
+    description,
+    ordering
   }
+  |
+  order(ordering asc)
 `;
