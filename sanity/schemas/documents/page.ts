@@ -9,25 +9,6 @@ export default {
       title: 'Path',
     },
     {
-      name: 'blocks',
-      type: 'array',
-      title: 'Blokker',
-      of: [
-        {
-          type: 'splitHeader',
-        },
-        {
-          type: 'experience',
-        },
-        {
-          type: 'header',
-        },
-        {
-          type: 'plainText',
-        },
-      ],
-    },
-    {
       title: 'Content',
       name: 'content',
       type: 'array',
