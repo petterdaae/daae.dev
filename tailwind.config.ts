@@ -7,6 +7,8 @@ export default {
       colors: {
         black: "#252a34",
         red: "#ff2e63",
+        blue: '#DAF0F7',
+        darkBlue: '#06133d'
       },
     },
   },

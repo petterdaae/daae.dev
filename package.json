@@ -4,7 +4,7 @@
   "type": "module",
   "scripts": {
     "build": "remix vite:build",
-    "dev": "SANITY_PROJECT_ID=9ijxh2qg remix vite:dev",
+    "dev": "SANITY_PROJECT_ID=t2kuhyex remix vite:dev",
     "lint": "eslint --ignore-path .gitignore --cache --cache-location ./node_modules/.cache/eslint .",
     "start": "remix-serve ./build/server/index.js",
     "typecheck": "tsc"

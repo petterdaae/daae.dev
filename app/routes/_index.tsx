@@ -6,6 +6,7 @@ import Experience from "~/components/Experience";
 import SplitHeader from "~/components/SplitHeader";
 import { getPage } from "~/lib/sanity.server";
 import AltImage from "~/components/AltImage";
+import Event from "~/components/Event";
 
 export async function loader({ request }: LoaderFunctionArgs) {
   const url = new URL(request.url);
@@ -19,7 +20,7 @@ export async function loader({ request }: LoaderFunctionArgs) {
 export default function Index() {
   const page = useLoaderData<typeof loader>();
   return (
-    <div className="p-8 md:p-32 xl:p-64 xl:pt-32 xl:pb-32">
+    <div className="m-auto w-11/12 lg:w-10/12 xl:w-8/12 2xl:w-6/12">
       <PortableText
         value={page.content}
         components={{
@@ -27,6 +28,7 @@ export default function Index() {
             splitHeader: SplitHeader,
             experience: Experience,
             altImage: AltImage,
+            event: Event
           },
           block: {
             h2: ({ children }) => <h2 className="text-2xl font-bold pt-4 pb-4">{children}</h2>,
