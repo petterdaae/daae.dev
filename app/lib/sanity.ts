@@ -1,7 +1,5 @@
 import { createClient } from "@sanity/client";
 import type { SanityClient, SanityDocument } from "@sanity/client";
-import imageUrlBuilder from "@sanity/image-url";
-import type { SanityImageSource } from "@sanity/image-url/lib/types/types";
 
 export const projectId = "9ijxh2qg";
 export const dataset = "production";
