@@ -20,6 +20,11 @@ export default {
             title: 'Bilde',
         },
         {
+            name: 'imageAlt',
+            type: 'string',
+            title: 'Bildeforklaring (for svaksynte)',
+        },
+        {
             name: 'rightAlign',
             type: 'boolean',
             title: 'Plasser bilde til høyre',
