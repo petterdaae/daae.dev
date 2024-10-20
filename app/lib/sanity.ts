@@ -15,7 +15,7 @@ export function getClient(): SanityClient {
   });
 }
 
-export const aboutQuery = '*[_type == "about"]';
+export const aboutQuery = '*[_type == "site"]';
 export const experiencesQuery = `
   *[_type == "experience"]{
     company,

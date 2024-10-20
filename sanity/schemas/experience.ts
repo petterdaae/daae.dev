@@ -1,7 +1,7 @@
 export default {
   name: 'experience',
   type: 'document',
-  title: 'Experience',
+  title: 'Arbeidserfaring',
   fields: [
     {
       name: 'company',
