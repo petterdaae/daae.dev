@@ -6,13 +6,10 @@ jobs:
   sanity-deploy:
     runs-on: ubuntu-latest
     name: sanity deploy
-    defaults:
-      run:
-        working-directory: sanity
     steps:
-      - uses: actions/checkout@v2
-      - uses: sanity-io/github-action-sanity@v0.7-alpha
-        env:
-          SANITY_AUTH_TOKEN: ${{ secrets.SANITY_AUTH_TOKEN }}
+      - uses: actions/setup-node@v2
         with:
-          args: deploy
+          node-version: 12.x
+      - name: sanity deploy
+        working-directory: sanity
+        run: npm install && SANITY_AUTH_TOKEN="${{ secrets.SANITY_STUDIO_DEPLOY }}" npx sanity deploy
