@@ -52,6 +52,10 @@ export default function handleRequest(
     )
   );
 
+  responseHeaders.set("X-Frame-Options", "DENY");
+  responseHeaders.set("X-Content-Type-Options", "nosniff");
+  responseHeaders.set("Referrer-Policy", "no-referrer");
+
   return isbot(request.headers.get("user-agent"))
     ? handleBotRequest(
       request,
