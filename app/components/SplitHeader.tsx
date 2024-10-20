@@ -5,7 +5,7 @@ type Props = {
 
 export default function SplitHeader({ left, right }: Props) {
   return (
-    <h1 className="uppercase font-bold text-6xl">
+    <h1 className="uppercase font-bold text-4xl md:text-6xl">
       <span className="text-black">{left}</span>
       <span className="text-red">{right}</span>
     </h1>
