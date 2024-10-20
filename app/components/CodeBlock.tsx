@@ -4,7 +4,7 @@ type Props = {
 
 export default function CodeBlock({ code }: Props) {
   return (
-    <pre className="mt-8 p-2 bg-slate-200 border border-black border-solid">
+    <pre className="mt-4 mb-4 p-2 bg-slate-200 border border-black border-solid">
       {code}
     </pre>
   );
