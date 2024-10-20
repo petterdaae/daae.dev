@@ -1,17 +1,12 @@
 export default {
-  name: 'site',
+  name: 'page',
   type: 'document',
   title: 'Sider',
   fields: [
     {
-      name: 'name',
+      name: 'path',
       type: 'string',
-      title: 'navn',
-    },
-    {
-      name: 'description',
-      type: 'text',
-      title: 'Beskrivelse',
+      title: 'Path',
     },
     {
       name: 'blocks',
@@ -19,20 +14,23 @@ export default {
       title: 'Blokker',
       of: [
         {
-          type: 'plainText',
+          type: 'splitHeader',
+        },
+        {
+          type: 'experience',
         },
         {
           type: 'header',
         },
         {
-          type: 'checkbox',
+          type: 'plainText',
         },
       ],
     },
   ],
   preview: {
     select: {
-      title: 'name',
+      title: 'path',
     },
   },
 }

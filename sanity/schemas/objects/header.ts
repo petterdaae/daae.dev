@@ -1,12 +1,12 @@
 export default {
-  name: 'checkbox',
+  name: 'header',
   type: 'object',
-  title: 'Checkbox',
+  title: 'Overskrift',
   fields: [
     {
       name: 'value',
       type: 'string',
-      title: 'Value',
+      title: 'Verdi',
     },
   ],
 }
