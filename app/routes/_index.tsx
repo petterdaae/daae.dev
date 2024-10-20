@@ -7,6 +7,7 @@ import SplitHeader from "~/components/SplitHeader";
 import { getPage } from "~/lib/sanity.server";
 import AltImage from "~/components/AltImage";
 import Event from "~/components/Event";
+import TextWithImage from "~/components/TextWithImage";
 
 export async function loader({ request }: LoaderFunctionArgs) {
   const url = new URL(request.url);
@@ -28,7 +29,8 @@ export default function Index() {
             splitHeader: SplitHeader,
             experience: Experience,
             altImage: AltImage,
-            event: Event
+            event: Event,
+            textWithImage: TextWithImage
           },
           block: {
             h2: ({ children }) => <h2 className="text-2xl font-bold pt-4 pb-4">{children}</h2>,

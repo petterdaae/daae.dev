@@ -30,6 +30,10 @@ export async function getPage(path: string): Promise<SanityDocument> {
           _type == "altImage" => {
             ...,
             "imageUrl": image.asset->url
+          },
+          _type == "textWithImage" => {
+            ...,
+            "imageUrl": image.asset->url
           }
         }
       }[0]
