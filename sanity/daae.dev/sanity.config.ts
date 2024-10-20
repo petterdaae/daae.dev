@@ -1,4 +1,5 @@
 import { defineConfig } from 'sanity'
+import { structureTool } from 'sanity/structure'
 import { schemaTypes } from './schemas'
 
 export default defineConfig({
@@ -8,7 +9,7 @@ export default defineConfig({
   projectId: '9ijxh2qg',
   dataset: 'production',
 
-  plugins: [],
+  plugins: [structureTool()],
 
   schema: {
     types: schemaTypes,
