@@ -13,6 +13,22 @@ export default {
       type: 'text',
       title: 'Beskrivelse',
     },
+    {
+      name: 'blocks',
+      type: 'array',
+      title: 'Blokker',
+      of: [
+        {
+          type: 'plainText',
+        },
+        {
+          type: 'header',
+        },
+        {
+          type: 'checkbox',
+        },
+      ],
+    },
   ],
   preview: {
     select: {
