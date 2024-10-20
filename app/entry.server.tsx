@@ -22,33 +22,37 @@ export default function handleRequest(
   remixContext: EntryContext,
   loadContext: AppLoadContext
 ) {
-
   // Deprecation, intervention and crash reports
   // https://docs.report-uri.com/setup/reporting-api
-  responseHeaders.set("Report-To", JSON.stringify({
-    group: "default",
-    max_age: 31536000,
-    endpoints: [
-      {
-        url: "https://daae.report-uri.com/a/d/g"
-      }
-    ],
-    include_subdomains: true
-  }));
+  responseHeaders.set(
+    "Report-To",
+    JSON.stringify({
+      group: "default",
+      max_age: 31536000,
+      endpoints: [
+        {
+          url: "https://daae.report-uri.com/a/d/g",
+        },
+      ],
+      include_subdomains: true,
+    })
+  );
 
   // Content Security Policy
   // https://csp-evaluator.withgoogle.com
-  const nonce = crypto.randomBytes(16).toString('base64');
+  const nonce = crypto.randomBytes(16).toString("base64");
   responseHeaders.set(
     "Content-Security-Policy",
     "".concat(
       `default-src 'none'; `,
       `script-src 'strict-dynamic' 'nonce-${nonce}' 'unsafe-inline' http: https:; `,
       `img-src cdn.sanity.io;`,
-      `style-src-elem 'self';`,
+      `style-src 'self';`,
       `require-trusted-types-for 'script'; `,
       `report-uri https://daae.report-uri.com/r/d/csp/enforce; `,
-      process.env.NODE_ENV === "development" ? "connect-src ws://localhost:3001;" : ""
+      process.env.NODE_ENV === "development"
+        ? "connect-src ws://localhost:3001;"
+        : ""
     )
   );
 
@@ -58,19 +62,19 @@ export default function handleRequest(
 
   return isbot(request.headers.get("user-agent"))
     ? handleBotRequest(
-      request,
-      responseStatusCode,
-      responseHeaders,
-      remixContext,
-      nonce
-    )
+        request,
+        responseStatusCode,
+        responseHeaders,
+        remixContext,
+        nonce
+      )
     : handleBrowserRequest(
-      request,
-      responseStatusCode,
-      responseHeaders,
-      remixContext,
-      nonce
-    );
+        request,
+        responseStatusCode,
+        responseHeaders,
+        remixContext,
+        nonce
+      );
 }
 
 function handleBotRequest(
@@ -141,8 +145,7 @@ function handleBrowserRequest(
           url={request.url}
           abortDelay={ABORT_DELAY}
         />
-      </NonceProvider>
-      ,
+      </NonceProvider>,
       {
         onShellReady() {
           shellRendered = true;
