@@ -28,5 +28,10 @@ export default {
             type: 'string',
             title: 'Beskrivelse',
         },
+        {
+            name: 'buyTicketsLink',
+            type: 'string',
+            title: 'Lenke for kjøp av billetter'
+        }
     ],
 }
