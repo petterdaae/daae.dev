@@ -1,3 +1,5 @@
+import H2 from "./H2";
+
 type Props = {
     value: {
         title: string;
@@ -11,9 +13,9 @@ type Props = {
 
 export default function Event({ value }: Props) {
     return (
-        <div className="mt-10 p-4 bg-blue rounded-lg flex">
+        <div className="mt-16 p-8 bg-blue rounded-lg flex">
             <div>
-                <h2 className="text-3xl">{value.title}</h2>
+                <H2>{value.title}</H2>
                 <p className="mt-2 inline-block rounded-full border border-darkBlue pr-2 pl-2 mr-2">{value.date}</p>
                 <p className="mt-2 inline-block rounded-full border border-darkBlue  pr-2 pl-2 mr-2">{value.time}</p>
                 <p className="mt-2 inline-block rounded-full border border-darkBlue pr-2 pl-2 mr-2">{value.location}</p>

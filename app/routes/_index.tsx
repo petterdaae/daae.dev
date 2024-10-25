@@ -10,6 +10,8 @@ import Event from "~/components/Event";
 import TextWithImage from "~/components/TextWithImage";
 import callout from "sanity/duolignum.no/schemas/objects/callout";
 import Callout from "~/components/Callout";
+import H2 from "~/components/H2";
+import H1 from "~/components/H1";
 
 export async function loader({ request }: LoaderFunctionArgs) {
   const url = new URL(request.url);
@@ -36,9 +38,10 @@ export default function Index() {
             callout: Callout
           },
           block: {
-            h2: ({ children }) => <h2 className="text-2xl font-bold pt-4 pb-4">{children}</h2>,
-            h1: ({ children }) => <h1 className="text-3xl lg:text-6xl font-bold pt-8 pb-8">{children}</h1>,
-            normal: ({ children }) => <p className="pb-2">{children}</p>,
+            h2: H2,
+            // h1: ({ children }) => <h1 className="text-3xl lg:text-6xl font-bold pt-8 pb-8">{children}</h1>,
+            h1: H1,
+            normal: ({ children }) => <p className="">{children}</p>,
           }
         }}
       />

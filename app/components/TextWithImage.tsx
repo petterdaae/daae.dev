@@ -1,3 +1,5 @@
+import H2 from "./H2";
+
 type Props = {
     value: {
         title: string;
@@ -14,10 +16,13 @@ type TextProps = {
     className: string;
 }
 
+const imageBasis = `basis-1/4 sm:basis-2/5`;
+const textBasis = `basis-3/4 sm:basis-3/5`;
+
 function Text({ title, text, className }: TextProps) {
     return (
-        <div className={`basis-3/4 ${className}`}>
-            <h2 className="text-3xl mb-4">{title}</h2>
+        <div className={`${textBasis} ${className} flex-row content-center`}>
+            <H2>{title}</H2>
             <p>{text}</p>
         </div>
     )
@@ -25,14 +30,14 @@ function Text({ title, text, className }: TextProps) {
 
 function TextWithImageMobile({ value }: Props) {
     return (
-        <div className="sm:hidden mt-10">
-            <h2 className="text-3xl mb-2">{value.title}</h2>
-            <div className="flex">
-                {value.rightAlign && <p className="basis-2/3 mr-2">{value.text}</p>}
-                <div className="basis-1/3">
+        <div className="sm:hidden mt-16">
+            <H2>{value.title}</H2>
+            <div className="flex mt-4">
+                {value.rightAlign && <p className={`${textBasis} mr-4`}>{value.text}</p>}
+                <div className={imageBasis}>
                     <img className="rounded-lg" src={value.imageUrl} alt={value.imageAlt} />
                 </div>
-                {!value.rightAlign && <p className="basis-2/3 ml-2">{value.text}</p>}
+                {!value.rightAlign && <p className={`${textBasis} ml-4`}>{value.text}</p>}
             </div>
         </div>
     )
@@ -40,9 +45,9 @@ function TextWithImageMobile({ value }: Props) {
 
 function TextWithImageDesktop({ value }: Props) {
     return (
-        <div className="hidden sm:flex mt-10">
+        <div className="hidden sm:flex mt-16">
             {value.rightAlign && <Text title={value.title} text={value.text} className="mr-8" />}
-            <div className="basis-1/4">
+            <div className={imageBasis}>
                 <img className="rounded-lg" src={value.imageUrl} alt={value.imageAlt} />
             </div>
             {!value.rightAlign && <Text title={value.title} text={value.text} className="ml-8" />}
