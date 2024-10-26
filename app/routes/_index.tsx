@@ -15,7 +15,8 @@ import H1 from "~/components/H1";
 
 export async function loader({ request }: LoaderFunctionArgs) {
   const url = new URL(request.url);
-  const page = await getPage(url.pathname);
+  const preview = url.searchParams.get("preview") == "true";
+  const page = await getPage(url.pathname, preview);
   if (!page) {
     throw new Response(null, { status: 404, statusText: "Not Found" });
   }

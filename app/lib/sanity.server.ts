@@ -1,23 +1,18 @@
 import { createClient } from "@sanity/client";
-import type { SanityClient, SanityDocument } from "@sanity/client";
+import type { SanityDocument } from "@sanity/client";
 
-export const dataset = "production";
-export const apiVersion = "2023-07-01";
-
-export function getClient(): SanityClient {
-  const projectId = process.env.SANITY_PROJECT_ID;
+function getClient(useCdn: boolean) {
   return createClient({
-    projectId,
-    dataset,
-    apiVersion,
-    useCdn: process.env.NODE_ENV !== "development",
-    perspective:
-      process.env.NODE_ENV == "development" ? "previewDrafts" : "published",
+    projectId: process.env.SANITY_PROJECT_ID,
+    dataset: "production",
+    apiVersion: "2023-07-01",
+    useCdn: useCdn,
+    perspective: "published",
   });
 }
 
-export async function getPage(path: string): Promise<SanityDocument> {
-  const client = getClient();
+export async function getPage(path: string, previewDrafts: boolean): Promise<SanityDocument> {
+  const client = getClient(!previewDrafts);
   return await client.fetch(
     `
       *[_type == "page" && path == $param]{
@@ -40,6 +35,7 @@ export async function getPage(path: string): Promise<SanityDocument> {
     `,
     {
       param: path,
-    }
+    },
+    previewDrafts ? { token: process.env.SANITY_API_READ_TOKEN, perspective: 'previewDrafts' } : {}
   );
 }
