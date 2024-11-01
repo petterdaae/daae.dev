@@ -1,5 +1,4 @@
 import { PortableText, PortableTextBlock } from "@portabletext/react";
-import H2 from "./H2";
 
 type Props = {
     value: {
@@ -14,7 +13,7 @@ export default function Callout({ value }: Props) {
                 value={value.content}
                 components={{
                     block: {
-                        h2: H2,
+                        h2: ({ children }) => <h2 className="text-2xl sm:text-3xl">{children}</h2>,
                     }
                 }}
             />

@@ -22,7 +22,7 @@ const textBasis = `basis-3/4 sm:basis-3/5`;
 function Text({ title, text, className }: TextProps) {
     return (
         <div className={`${textBasis} ${className} flex-row content-center`}>
-            <H2>{title}</H2>
+            <h2 className="text-2xl sm:text-3xl">{title}</h2>
             <p>{text}</p>
         </div>
     )
@@ -31,7 +31,7 @@ function Text({ title, text, className }: TextProps) {
 function TextWithImageMobile({ value }: Props) {
     return (
         <div className="sm:hidden mt-16">
-            <H2>{value.title}</H2>
+            <h2 className="text-2xl sm:text-3xl">{value.title}</h2>
             <div className="flex mt-4">
                 {value.rightAlign && <p className={`${textBasis} mr-4`}>{value.text}</p>}
                 <div className={imageBasis}>
