@@ -14,4 +14,8 @@ export default defineConfig({
   schema: {
     types: schemaTypes,
   },
+
+  document: {
+    productionUrl: async (prev, context) => "http://daae.dev?preview=true"
+  }
 })
