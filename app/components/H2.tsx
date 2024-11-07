@@ -1,7 +1,12 @@
-import { PropsWithChildren } from "react";
+import { PropsWithChildren, ReactNode } from "react";
 
-export default function H2({ children }: PropsWithChildren) {
+type Props = {
+    children: ReactNode;
+    topMargin: number;
+}
+
+export default function H2({ children, topMargin = 8 }: Props) {
     return (
-        <h2 className="text-2xl sm:text-3xl pt-8">{children}</h2>
+        <h2 className={`text-2xl sm:text-3xl mt-${topMargin}`}>{children}</h2>
     );
 }

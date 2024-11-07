@@ -19,6 +19,7 @@ export default {
         { type: 'altImage' },
         { type: 'codeBlock' },
         { type: 'textWithImage' },
+        { type: 'event' },
       ],
     },
   ],

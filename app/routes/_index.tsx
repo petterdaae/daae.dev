@@ -39,8 +39,9 @@ export default function Index() {
             callout: Callout
           },
           block: {
-            h1: H1,
             h2: H2,
+            // h1: ({ children }) => <h1 className="text-3xl lg:text-6xl font-bold pt-8 pb-8">{children}</h1>,
+            h1: H1,
             normal: ({ children }) => <p className="">{children}</p>,
           }
         }}
