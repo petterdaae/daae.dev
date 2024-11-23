@@ -1,4 +1,5 @@
 import H2 from "./H2";
+import P from "./H2";
 
 type Props = {
     value: {
@@ -22,8 +23,8 @@ const textBasis = `basis-3/4 sm:basis-3/5`;
 function Text({ title, text, className }: TextProps) {
     return (
         <div className={`${textBasis} ${className} flex-row content-center`}>
-            <h2 className="text-2xl sm:text-3xl">{title}</h2>
-            <p>{text}</p>
+            <H2 className="text-2xl sm:text-3xl">{title}</H2>
+            <P>{text}</P>
         </div>
     )
 }
@@ -31,13 +32,13 @@ function Text({ title, text, className }: TextProps) {
 function TextWithImageMobile({ value }: Props) {
     return (
         <div className="sm:hidden mt-16">
-            <h2 className="text-2xl sm:text-3xl">{value.title}</h2>
+            <H2 className="text-2xl sm:text-3xl">{value.title}</H2>
             <div className="flex mt-4">
-                {value.rightAlign && <p className={`${textBasis} mr-4`}>{value.text}</p>}
+                {value.rightAlign && <P className={`${textBasis} mr-4`}>{value.text}</P>}
                 <div className={imageBasis}>
                     <img className="rounded-lg" src={value.imageUrl} alt={value.imageAlt} />
                 </div>
-                {!value.rightAlign && <p className={`${textBasis} ml-4`}>{value.text}</p>}
+                {!value.rightAlign && <P className={`${textBasis} ml-4`}>{value.text}</P>}
             </div>
         </div>
     )

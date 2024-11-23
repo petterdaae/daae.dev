@@ -1,12 +1,12 @@
-import { PropsWithChildren, ReactNode } from "react";
+import { ReactNode, useContext } from "react";
 
 type Props = {
     children: ReactNode;
-    topMargin: number;
+    className?: string;
 }
 
-export default function H2({ children, topMargin = 8 }: Props) {
+export default function H2({ children, className }: Props) {
     return (
-        <h2 className={`text-2xl sm:text-3xl mt-${topMargin}`}>{children}</h2>
+        <h2 className={`${className ?? ""} font-header`}>{children}</h2>
     );
 }

@@ -1,7 +1,12 @@
-import { PropsWithChildren } from "react";
+import { ReactNode } from "react";
 
-export default function H1({ children }: PropsWithChildren) {
+type Props = {
+    children: ReactNode;
+    className?: string;
+}
+
+export default function H1({ children, className }: Props) {
     return (
-        <h1 className="text-4xl pb-4 pt-16 sm:text-5xl text-center">{children}</h1>
+        <h1 className={`${className ?? ""} font-header`}>{children}</h1>
     );
 }

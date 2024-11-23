@@ -8,10 +8,11 @@ import { getPage } from "~/lib/sanity.server";
 import AltImage from "~/components/AltImage";
 import Event from "~/components/Event";
 import TextWithImage from "~/components/TextWithImage";
-import callout from "sanity/duolignum.no/schemas/objects/callout";
 import Callout from "~/components/Callout";
-import H2 from "~/components/H2";
 import H1 from "~/components/H1";
+import H2 from "~/components/H2";
+import P from "~/components/P";
+
 
 export async function loader({ request }: LoaderFunctionArgs) {
   const url = new URL(request.url);
@@ -20,13 +21,14 @@ export async function loader({ request }: LoaderFunctionArgs) {
   if (!page) {
     throw new Response(null, { status: 404, statusText: "Not Found" });
   }
-  return json(page);
+
+  return json({ page });
 }
 
 export default function Index() {
-  const page = useLoaderData<typeof loader>();
+  const { page } = useLoaderData<typeof loader>();
   return (
-    <div className="m-auto w-11/12 lg:w-10/12 xl:w-8/12 2xl:w-6/12 mb-8">
+    <div className={`m-auto w-11/12 lg:w-10/12 xl:w-8/12 2xl:w-6/12 mb-8`}>
       <PortableText
         value={page.content}
         components={{
@@ -39,10 +41,9 @@ export default function Index() {
             callout: Callout
           },
           block: {
-            h2: H2,
-            // h1: ({ children }) => <h1 className="text-3xl lg:text-6xl font-bold pt-8 pb-8">{children}</h1>,
-            h1: H1,
-            normal: ({ children }) => <p className="">{children}</p>,
+            h1: ({ children }) => <H1 className="text-4xl pb-4 pt-16 sm:text-5xl text-center">{children}</H1>,
+            h2: ({ children }) => <H2 className="text-2xl sm:text-3xl mt-8">{children}</H2>,
+            normal: ({ children }) => <P>{children}</P>,
           }
         }}
       />
