@@ -30,15 +30,14 @@ function Text({ title, text, className }: TextProps) {
 }
 
 function TextWithImageMobile({ value }: Props) {
+    const float = value.rightAlign ? "right" : "left";
+    const imagePadding = value.rightAlign ? "ml-6" : "mr-6";
     return (
         <div className="sm:hidden mt-16">
-            <H2 className="text-2xl sm:text-3xl">{value.title}</H2>
-            <div className="flex mt-4">
-                {value.rightAlign && <P className={`${textBasis} mr-4`}>{value.text}</P>}
-                <div className={imageBasis}>
-                    <img className="rounded-lg" src={value.imageUrl} alt={value.imageAlt} />
-                </div>
-                {!value.rightAlign && <P className={`${textBasis} ml-4`}>{value.text}</P>}
+            <H2 className="text-2xl sm:text-3xl pb-4">{value.title}</H2>
+            <div className="">
+                <img className={`rounded-lg w-40 float-${float} ${imagePadding} mb-1`} src={value.imageUrl} alt={value.imageAlt} />
+                <P>{value.text}</P>
             </div>
         </div>
     )
