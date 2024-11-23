@@ -44,6 +44,9 @@ export default function Index() {
             h1: ({ children }) => <H1 className="text-4xl pb-4 pt-16 sm:text-5xl text-center">{children}</H1>,
             h2: ({ children }) => <H2 className="text-2xl sm:text-3xl mt-8">{children}</H2>,
             normal: ({ children }) => <P className="pt-4">{children}</P>,
+          },
+          marks: {
+            center: ({ children }) => <div className="text-center">{children}</div>
           }
         }}
       />

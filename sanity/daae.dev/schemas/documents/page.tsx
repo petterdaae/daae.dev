@@ -1,3 +1,7 @@
+const CenteredDecorator = (props: any) => (
+  <div style={{ textAlign: "center", width: "100%" }}>{props.children}</div>
+);
+
 export default {
   name: 'page',
   type: 'document',
@@ -13,7 +17,15 @@ export default {
       name: 'content',
       type: 'array',
       of: [
-        { type: 'block' },
+        {
+          type: 'block',
+          marks: {
+            decorators: [
+              { title: 'Strong', value: 'strong' },
+              { title: 'Centered', value: 'center', icon: () => 'C', component: CenteredDecorator }
+            ]
+          }
+        },
         { type: 'splitHeader' },
         { type: 'experience' },
         { type: 'altImage' },
