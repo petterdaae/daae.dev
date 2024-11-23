@@ -7,6 +7,6 @@ type Props = {
 }
 
 export default function A({ children, href, className }: Props) {
-    return <A className={`${className ?? ""}`} href={href}>{children}</A>
+    return <a className={`${className ?? ""}`} href={href}>{children}</a>
 
 }

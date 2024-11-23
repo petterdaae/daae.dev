@@ -24,7 +24,7 @@ function Text({ title, text, className }: TextProps) {
     return (
         <div className={`${textBasis} ${className} flex-row content-center`}>
             <H2 className="text-2xl sm:text-3xl">{title}</H2>
-            <P>{text}</P>
+            <P className="pt-4">{text}</P>
         </div>
     )
 }
