@@ -32,6 +32,11 @@ export default {
             name: 'buyTicketsLink',
             type: 'string',
             title: 'Lenke for kjøp av billetter'
-        }
+        },
+        {
+            name: 'image',
+            type: 'image',
+            title: 'Bilde',
+        },
     ],
 }
