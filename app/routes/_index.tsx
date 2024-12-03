@@ -13,7 +13,6 @@ import H1 from "~/components/H1";
 import H2 from "~/components/H2";
 import P from "~/components/P";
 
-
 export async function loader({ request }: LoaderFunctionArgs) {
   const url = new URL(request.url);
   const preview = url.searchParams.get("preview") == "true";
