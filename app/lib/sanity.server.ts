@@ -26,6 +26,10 @@ export async function getPage(path: string, previewDrafts: boolean): Promise<San
             ...,
             "imageUrl": image.asset->url
           },
+          _type == "event" => {
+            ...,
+            "imageUrl": image.asset->url
+          },
           _type == "textWithImage" => {
             ...,
             "imageUrl": image.asset->url
