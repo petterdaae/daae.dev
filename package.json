@@ -3,27 +3,28 @@
   "sideEffects": false,
   "type": "module",
   "scripts": {
-    "build": "remix vite:build",
-    "dev:duolignum": "SANITY_PROJECT_ID=t2kuhyex remix vite:dev",
-    "dev:daae": "SANITY_PROJECT_ID=9ijxh2qg remix vite:dev",
+    "build": "react-router build",
+    "dev:duolignum": "SANITY_PROJECT_ID=t2kuhyex react-router dev",
+    "dev:daae": "SANITY_PROJECT_ID=9ijxh2qg react-router dev",
     "lint": "eslint --ignore-path .gitignore --cache --cache-location ./node_modules/.cache/eslint .",
-    "start": "remix-serve ./build/server/index.js",
-    "typecheck": "tsc"
+    "start": "react-router-serve ./build/server/index.js",
+    "typecheck": "react-router typegen && tsc"
   },
   "dependencies": {
     "@portabletext/react": "^3.1.0",
-    "@remix-run/node": "^2.15.0",
-    "@remix-run/react": "^2.15.0",
-    "@remix-run/serve": "^2.15.0",
+    "@react-router/fs-routes": "^7.2.0",
+    "@react-router/node": "^7.0.0",
+    "@react-router/serve": "^7.0.0",
     "@sanity/client": "^6.23.0",
     "@sanity/image-url": "1.1.0",
     "@sanity/preview-kit": "^5.1.20",
     "isbot": "^5.1.17",
     "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "react-dom": "^18.2.0",
+    "react-router": "^7.2.0"
   },
   "devDependencies": {
-    "@remix-run/dev": "^2.15.0",
+    "@react-router/dev": "^7.0.0",
     "@types/react": "^18.3.12",
     "@types/react-dom": "^18.3.1",
     "@typescript-eslint/eslint-plugin": "^8.17.0",
