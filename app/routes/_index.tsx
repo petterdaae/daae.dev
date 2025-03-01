@@ -1,6 +1,5 @@
-import type { LoaderFunctionArgs } from "@remix-run/node";
-import { json } from "@remix-run/node";
-import { useLoaderData } from "@remix-run/react";
+import type { LoaderFunctionArgs } from "react-router";
+import { useLoaderData } from "react-router";
 import { PortableText } from "@portabletext/react";
 import Experience from "~/components/Experience";
 import SplitHeader from "~/components/SplitHeader";
@@ -21,7 +20,7 @@ export async function loader({ request }: LoaderFunctionArgs) {
     throw new Response(null, { status: 404, statusText: "Not Found" });
   }
 
-  return json({ page });
+  return { page };
 }
 
 export default function Index() {
