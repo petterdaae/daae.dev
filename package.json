@@ -19,6 +19,7 @@
     "@sanity/client": "^6.23.0",
     "@sanity/image-url": "1.1.0",
     "@sanity/preview-kit": "^5.1.20",
+    "@vercel/react-router": "^1.1.0",
     "isbot": "^5.1.17",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
