@@ -1,5 +1,5 @@
 import { Links, Meta, Outlet, Scripts, ScrollRestoration } from "react-router";
-import "./tailwind.css";
+import "./app.css";
 import { useNonce } from "./lib/nonce";
 
 export function Layout({ children }: { children: React.ReactNode }) {

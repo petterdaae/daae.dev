@@ -20,6 +20,7 @@
     "@sanity/image-url": "1.1.0",
     "@sanity/preview-kit": "^5.2.8",
     "@tailwindcss/postcss": "^4.0.9",
+    "@tailwindcss/vite": "^4.0.9",
     "@vercel/react-router": "^1.1.0",
     "isbot": "^5.1.23",
     "react": "^19.0.0",
