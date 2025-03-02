@@ -3,5 +3,10 @@
 @import "tailwindcss";
 
 @theme {
-    --font-sans "Nunito Sans", sans-serif;
+    --font-sans: "Nunito Sans", sans-serif;
+    --font-header: "GFS Didot", serif;
+    --color-blue: #DAF0F7;
+    --color-red: #ff2e63;
+    --color-black: #252a34;
+    --color-darkBlue: #06133d;
 }
