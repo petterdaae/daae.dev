@@ -19,6 +19,7 @@ export default {
       name: 'date',
       type: 'date',
       title: 'Dato',
+      validation: rule => rule.required()
     },
     {
       name: 'time',
@@ -39,8 +40,7 @@ export default {
     {
       name: 'buttonLink',
       type: 'url',
-      title: 'Lenke knappen skal gå til',
-      validation: rule => rule.required()
+      title: 'Lenke knappen skal gå til'
     },
   ],
   preview: {
