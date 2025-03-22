@@ -30,6 +30,7 @@ export default {
         { type: 'event' },
         { type: 'textWithImage' },
         { type: 'callout' },
+        { type: 'events' },
       ],
     },
   ],

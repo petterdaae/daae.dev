@@ -3,7 +3,7 @@ import { useLoaderData } from "react-router";
 import { PortableText } from "@portabletext/react";
 import Experience from "~/components/Experience";
 import SplitHeader from "~/components/SplitHeader";
-import { getPage } from "~/lib/sanity.server";
+import { getConcerts, getPage } from "~/lib/sanity.server";
 import AltImage from "~/components/AltImage";
 import Event from "~/components/Event";
 import TextWithImage from "~/components/TextWithImage";
@@ -11,6 +11,7 @@ import Callout from "~/components/Callout";
 import H1 from "~/components/H1";
 import H2 from "~/components/H2";
 import P from "~/components/P";
+import Events from "~/components/Events";
 
 export async function loader({ request }: LoaderFunctionArgs) {
   const url = new URL(request.url);
@@ -20,11 +21,13 @@ export async function loader({ request }: LoaderFunctionArgs) {
     throw new Response(null, { status: 404, statusText: "Not Found" });
   }
 
-  return { page };
+  const concerts = await getConcerts(preview);
+
+  return { page, concerts };
 }
 
 export default function Index() {
-  const { page } = useLoaderData<typeof loader>();
+  const { page, concerts } = useLoaderData<typeof loader>();
   return (
     <div className={`m-auto w-11/12 lg:w-10/12 xl:w-8/12 2xl:w-6/12 mb-8`}>
       <PortableText
@@ -36,7 +39,8 @@ export default function Index() {
             altImage: AltImage,
             event: Event,
             textWithImage: TextWithImage,
-            callout: Callout
+            callout: Callout,
+            events: () => <Events concerts={concerts} />
           },
           block: {
             h1: ({ children }) => <H1 className="text-4xl pb-4 pt-16 sm:text-5xl">{children}</H1>,
