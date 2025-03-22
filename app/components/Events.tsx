@@ -38,10 +38,10 @@ export default function Events({ concerts }: { concerts: any }) {
 
 
 
-    return <div>
-        {upcommingConcerts && <H2 className="text-2xl pb-4">Kommende konserter</H2>}
+    return <div className="pt-8">
+        {upcommingConcerts.length > 0 && <H2 className="text-2xl pb-4">Kommende konserter</H2>}
         {upcommingConcerts.map((concert: any) => <Event concert={concert} key={concert._id} />)}
-        {previousConcerts && <H2 className="text-2xl pb-4">Tideligere konserter</H2>}
+        {previousConcerts.length > 0 && <H2 className="text-2xl pb-4">Tideligere konserter</H2>}
         {previousConcerts.map((concert: any) => <Event concert={concert} key={concert._id} />)}
     </div>
 }
