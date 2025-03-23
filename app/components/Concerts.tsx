@@ -15,7 +15,7 @@ function Concert({ concert }: { concert: any }) {
     const formattedDate = `${date.getDate()} ${month.toUpperCase()}`;
     return (
         <div className="flex sm:items-center sm:pb-8">
-            <div className="hidden sm:block flex-col bg-blue rounded-lg justify-items-center content-center w-24 h-24 sm:w-32 sm:h-32 mr-4">
+            <div className="hidden sm:block flex-col bg-blue rounded-lg justify-items-center content-center text-center w-24 h-24 sm:w-32 sm:h-32 mr-4">
                 <P>{concert.time}</P>
                 <P className="text-l sm:text-xl">{formattedDate}</P>
             </div>
