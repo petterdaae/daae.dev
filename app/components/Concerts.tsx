@@ -9,7 +9,7 @@ function Keyword(props: { keyword: string }) {
   );
 }
 
-function Event({ concert }: { concert: any }) {
+function Concert({ concert }: { concert: any }) {
     const date = new Date(concert.date);
     const month = date.toLocaleDateString('default', { month: 'short' });
     const formattedDate = `${date.getDate()} ${month.toUpperCase()}`;
@@ -34,7 +34,7 @@ function Event({ concert }: { concert: any }) {
     );
 }
 
-export default function Events({ concerts }: { concerts: any }) {
+export default function Concerts({ concerts }: { concerts: any }) {
     const upcommingConcerts = concerts
         .filter((concert: any) => new Date(concert.date) >= new Date())
         .sort((a: any, b: any) => a.date.localCompare(b.date));
@@ -46,8 +46,8 @@ export default function Events({ concerts }: { concerts: any }) {
 
     return <div className="pt-8">
         {upcommingConcerts.length > 0 && <H2 className="text-2xl pb-4">Kommende konserter</H2>}
-        {upcommingConcerts.map((concert: any) => <Event concert={concert} key={concert._id} />)}
+        {upcommingConcerts.map((concert: any) => <Concert concert={concert} key={concert._id} />)}
         {previousConcerts.length > 0 && <H2 className="text-2xl pb-4">Tideligere konserter</H2>}
-        {previousConcerts.map((concert: any) => <Event concert={concert} key={concert._id} />)}
+        {previousConcerts.map((concert: any) => <Concert concert={concert} key={concert._id} />)}
     </div>
 }
