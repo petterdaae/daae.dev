@@ -10,7 +10,7 @@ type Props = {
 export default function YouTube({ value }: Props) {
     return (
         <ClientOnly>
-            {() => <div className="lg:ml-32 lg:mr-32 mt-8"><ReactPlayer url={value.url} controls pip width="100%" className="aspect-video !h-auto" /></div>}
+            {() => <div className="lg:ml-32 lg:mr-32 mt-16 mb-8"><ReactPlayer url={value.url} controls pip width="100%" className="aspect-video !h-auto" /></div>}
         </ClientOnly>
     );
 }
