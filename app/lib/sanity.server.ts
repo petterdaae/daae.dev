@@ -5,7 +5,7 @@ function getClient(useCdn: boolean) {
   return createClient({
     projectId: process.env.SANITY_PROJECT_ID,
     dataset: "production",
-    apiVersion: "2023-07-01",
+    apiVersion: "2025-03-19",
     useCdn: useCdn,
     perspective: "published",
   });
@@ -40,6 +40,15 @@ export async function getPage(path: string, previewDrafts: boolean): Promise<San
     {
       param: path,
     },
+    previewDrafts ? { token: process.env.SANITY_API_READ_TOKEN, perspective: 'previewDrafts' } : {}
+  );
+}
+
+export async function getConcerts(previewDrafts: boolean): Promise<any> {
+  const client = getClient(!previewDrafts);
+  return await client.fetch(
+    '*[_type == "concert"]',
+    {},
     previewDrafts ? { token: process.env.SANITY_API_READ_TOKEN, perspective: 'previewDrafts' } : {}
   );
 }
