@@ -12,6 +12,7 @@ import H1 from "~/components/H1";
 import H2 from "~/components/H2";
 import P from "~/components/P";
 import Concerts from "~/components/Concerts";
+import YouTube from "~/components/YouTube";
 
 export async function loader({ request }: LoaderFunctionArgs) {
   const url = new URL(request.url);
@@ -40,7 +41,8 @@ export default function Index() {
             event: Event,
             textWithImage: TextWithImage,
             callout: Callout,
-            events: () => <Concerts concerts={concerts} />
+            events: () => <Concerts concerts={concerts} />,
+            youtube: YouTube,
           },
           block: {
             h1: ({ children }) => <H1 className="text-4xl pb-4 pt-16 sm:text-5xl">{children}</H1>,
