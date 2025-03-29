@@ -31,6 +31,7 @@ export default {
         { type: 'textWithImage' },
         { type: 'callout' },
         { type: 'events' },
+        { type: 'youtube' },
       ],
     },
   ],
