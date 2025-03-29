@@ -6,7 +6,17 @@ export default {
         {
             name: 'content',
             type: 'array',
-            of: [{ type: 'block' }]
+            of: [{
+                type: 'block',
+                marks: {
+                    decorators: [
+                        { title: 'Strong', value: 'strong' },
+                        { title: 'Underline', value: 'underline' },
+                    ],
+                    annotations: [],
+                },
+                lists: [],
+            }]
         },
     ],
 }
