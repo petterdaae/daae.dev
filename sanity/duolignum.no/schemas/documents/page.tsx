@@ -23,13 +23,16 @@ export default {
             decorators: [
               { title: 'Strong', value: 'strong' },
               { title: 'Centered', value: 'center', icon: () => 'C', component: CenteredDecorator }
-            ]
-          }
+            ],
+            annotations: [],
+          },
+          lists: [],
         },
         { type: 'altImage' },
-        { type: 'event' },
         { type: 'textWithImage' },
         { type: 'callout' },
+        { type: 'events' },
+        { type: 'youtube' },
       ],
     },
   ],
