@@ -1,7 +1,7 @@
 export default {
     name: 'events',
     type: 'object',
-    title: 'Arrangementer',
+    title: 'Konserter',
     fields: [
         {
             name: 'placeholder',
