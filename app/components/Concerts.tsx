@@ -45,9 +45,9 @@ export default function Concerts({ concerts }: { concerts: any }) {
         .sort((a: any, b: any) => b.date.localeCompare(a.date));
 
     return <div className="pt-8">
-        {upcommingConcerts.length > 0 && <H2 className="text-2xl pb-4">Kommende konserter</H2>}
+        {upcommingConcerts.length > 0 && <H2 className="text-2xl pb-4">KOMMENDE KONSERTER</H2>}
         {upcommingConcerts.map((concert: any) => <Concert concert={concert} key={concert._id} />)}
-        {previousConcerts.length > 0 && <H2 className="text-2xl pb-4">Tideligere konserter</H2>}
+        {previousConcerts.length > 0 && <H2 className="text-2xl pb-4">TIDELIGERE KONSERTER</H2>}
         {previousConcerts.map((concert: any) => <Concert concert={concert} key={concert._id} />)}
     </div>
 }
