@@ -3,7 +3,7 @@ import H2 from "./H2";
 
 function Keyword(props: { keyword: string }) {
   return (
-    <span className="p-1 pl-2 pr-2 text-xs rounded-full bg-blue border border-blue mr-2">
+    <span className="p-1 pl-2 pr-2 text-sm rounded-full bg-blue border border-blue mr-2">
       {props.keyword}
     </span>
   );
@@ -22,12 +22,12 @@ function Concert({ concert }: { concert: any }) {
 
             <div className="flex-2 mr-4">
                 <H2 className="text-xl font-bold pb-2">{concert.title}</H2>
+                <P className="pb-2 sm:pb-0">{concert.description}</P>
                 <div className="mb-2 sm:hidden">
                     <Keyword keyword={formattedDate} />
                     <Keyword keyword={concert.time} />
+                    {!concert.hideButton && <a className="bg-blue rounded-full p-1 pl-3 pr-3 text-sm sm:hidden underline" href={concert.buttonLink}>{concert.buttonText}</a>}
                 </div>
-                <P className="pb-4 sm:pb-0">{concert.description}</P>
-                {!concert.hideButton && <a className="bg-blue rounded-full p-2 pl-4 pr-4 sm:hidden" href={concert.buttonLink}>{concert.buttonText}</a>}
             </div>
             {!concert.hideButton && <a className="bg-blue rounded-full p-2 float-right mt-4 pl-4 pr-4 sm:inline hidden" href={concert.buttonLink}>{concert.buttonText}</a>}
         </div>
