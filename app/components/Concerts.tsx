@@ -37,7 +37,7 @@ function Concert({ concert }: { concert: any }) {
 export default function Concerts({ concerts }: { concerts: any }) {
     const upcommingConcerts = concerts
         .filter((concert: any) => new Date(concert.date) >= new Date())
-        .sort((a: any, b: any) => b.date.localeCompare(a.date));
+        .sort((a: any, b: any) => a.date.localeCompare(b.date));
 
     const previousConcerts = concerts
         .filter((concert: any) => new Date(concert.date) < new Date())
