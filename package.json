@@ -7,7 +7,7 @@
     "dev:duolignum": "SANITY_PROJECT_ID=t2kuhyex react-router dev",
     "dev:daae": "SANITY_PROJECT_ID=9ijxh2qg react-router dev",
     "dev": "react-router dev",
-    "lint": "eslint --ignore-path .gitignore --cache --cache-location ./node_modules/.cache/eslint .",
+    "lint": "eslint --ignore-path .gitignore --ignore-pattern \"sanity/*\" --cache --cache-location ./node_modules/.cache/eslint .",
     "start": "react-router-serve ./build/server/index.js",
     "typecheck": "react-router typegen && tsc"
   },
@@ -33,6 +33,8 @@
     "@react-router/dev": "^7.6.0",
     "@types/react": "^19.1.4",
     "@types/react-dom": "^19.1.5",
+    "@typescript-eslint/eslint-plugin": "^8.32.1",
+    "@typescript-eslint/parser": "^8.32.1",
     "autoprefixer": "^10.4.21",
     "eslint": "^8.38.0",
     "eslint-import-resolver-node": "^0.3.9",
