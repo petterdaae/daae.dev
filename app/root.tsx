@@ -1,6 +1,7 @@
 import { Links, Meta, Outlet, Scripts, ScrollRestoration, useLoaderData } from "react-router";
 import "./app.css";
 import { useNonce } from "./lib/nonce";
+import { ProjectProvider } from "./lib/project-context";
 
 export async function loader() {
   return {
@@ -22,7 +23,9 @@ export function Layout({ children }: { children: React.ReactNode }) {
         <Links />
       </head>
       <body className={isDaae ? "font-mono" : ""}>
-        {children}
+        <ProjectProvider projectId={projectId}>
+          {children}
+        </ProjectProvider>
         <ScrollRestoration nonce={nonce} />
         <Scripts nonce={nonce} />
       </body>
