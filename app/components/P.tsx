@@ -1,4 +1,5 @@
-import { ReactNode, useContext } from "react"
+import { ReactNode } from "react"
+import { useProject } from "~/lib/project-context";
 
 type Props = {
     children: ReactNode;
@@ -6,5 +7,7 @@ type Props = {
 }
 
 export default function P({ children, className }: Props) {
-    return <p className={`${className ?? ""}`}>{children}</p>
+    const { isDaae } = useProject();
+    const fontClass = isDaae ? "font-mono" : "";
+    return <p className={`${fontClass} ${className ?? ""}`}>{children}</p>
 }
