@@ -14,7 +14,7 @@
   "dependencies": {
     "@portabletext/react": "^3.2.1",
     "@react-router/fs-routes": "^7.6.2",
-    "@react-router/node": "^7.6.1",
+    "@react-router/node": "^7.9.4",
     "@react-router/serve": "^7.6.1",
     "@sanity/client": "^7.6.0",
     "@sanity/image-url": "1.1.0",
